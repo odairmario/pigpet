@@ -1,0 +1,5 @@
+Django==2.0.2
+django-core==1.4.1
+djangorestframework==3.8.2
+django-rest-auth==0.9.3
+coreapi==2.3.3
