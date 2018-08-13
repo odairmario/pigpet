@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^', include('petianos.urls')),
     url(r'^', include('userprofile.urls')),
+    url(r'^', include('grupospet.urls')),
     url(r'^api-auth/', include('rest_framework.urls')),
 ]

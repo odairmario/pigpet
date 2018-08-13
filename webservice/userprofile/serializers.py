@@ -5,11 +5,14 @@ from django.contrib.auth.models import User
 from userprofile.models import UserProfile
 from django.contrib.auth import update_session_auth_hash
 
+from grupospet.serializers import GrupoPetSerializer
+
 class UserProfileSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = UserProfile
-        read_only_fields = ('created_at', 'updated_at',)
-        fields = ('phone', 'cell_phone', 'active', 'userType', 'created_at', 'updated_at')
+        read_only_fields = ('criado_em', 'atualizado_em',)
+        fields = ('telefone', 'ativo', 'tipo_usuario', 'criado_em', 'atualizado_em', 'grupo_pet',)
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -30,7 +33,7 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
 
         userProfile = UserProfile(**profile_data)
-        userProfile.username = user.username
+        # userProfile.username = user.username
         userProfile.user = user
         userProfile.save()
         
@@ -46,9 +49,9 @@ class UserSerializer(serializers.ModelSerializer):
         # Update UserProfile data
         if not instance.profile:
             UserProfile.objects.create(user=instance, **profile_data)
-        instance.profile.uid = profile_data.get('uid', instance.profile.uid)
-        instance.profile.phone = profile_data.get('uid', instance.profile.phone)
-        instance.profile.cell_phone = profile_data.get('uid', instance.profile.cell_phone)
+        # instance.profile.uid = profile_data.get('uid', instance.profile.uid)
+        instance.profile.telefone = profile_data.get('uid', instance.profile.phone)
+        # instance.profile.cell_phone = profile_data.get('uid', instance.profile.cell_phone)
         instance.save()
         # Check if the password has changed
         password = validated_data.get('password', None)

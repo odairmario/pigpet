@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     # 'petianos.apps.PetianosConfig',
+    'grupospet.apps.GrupospetConfig',
     'userprofile.apps.UserprofileConfig',
 ]
 

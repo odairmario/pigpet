@@ -4,17 +4,21 @@ from utils import USER_TYPE_LIST
 from django.dispatch import receiver
 from django.db.models.signals import post_save, pre_delete
 
+from grupospet.models import GrupoPet
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, primary_key=True, related_name='profile', on_delete=models.CASCADE)
-    # uid = models.CharField(max_length=20, null=False, blank=False)  # rut
-    phone = models.CharField(max_length=20, null=True, blank=True)
-    cell_phone = models.CharField(max_length=20, null=True, blank=True)
-    username = models.CharField(max_length=20, null=True, blank=True)
-    active = models.BooleanField(default=True)
-    userType = models.CharField(choices=USER_TYPE_LIST, default='discente', max_length=100)
+    grupo_pet = models.ForeignKey(GrupoPet, on_delete=models.CASCADE, related_name='membros')
 
-    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+    # uid = models.CharField(max_length=20, null=False, blank=False)  # rut
+    # phone = models.CharField(max_length=20, null=True, blank=True)
+    telefone = models.CharField(max_length=20, null=True, blank=True)
+    # nomeUsuario = models.CharField(max_length=20, null=True, blank=True)
+    ativo = models.BooleanField(default=True)
+    tipo_usuario = models.CharField(choices=USER_TYPE_LIST, default='discente', max_length=100)
+
+    criado_em = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    atualizado_em = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     def __unicode__(self):
         return self.user.username
