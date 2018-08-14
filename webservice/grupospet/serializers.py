@@ -8,8 +8,8 @@ from django.contrib.auth import update_session_auth_hash
 from grupospet.models import GrupoPet
 
 class GrupoPetSerializer(serializers.ModelSerializer):
-    membros = serializers.HyperlinkedRelatedField(many=True, read_only=True, view_name='userprofile-detail')
+    # membros = serializers.HyperlinkedRelatedField(many=True, read_only=True, view_name='userprofile-detail')
 
     class Meta:
         model = GrupoPet
-        fields = ('id', 'nome', 'area_do_conhecimento', 'interdisciplinar','membros')
+        fields = ('id', 'nome', 'area_do_conhecimento', 'interdisciplinar','membros', 'projetos')

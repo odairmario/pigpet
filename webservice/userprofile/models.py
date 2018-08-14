@@ -4,11 +4,10 @@ from utils import USER_TYPE_LIST
 from django.dispatch import receiver
 from django.db.models.signals import post_save, pre_delete
 
-from grupospet.models import GrupoPet
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, primary_key=True, related_name='profile', on_delete=models.CASCADE)
-    grupo_pet = models.ForeignKey(GrupoPet, on_delete=models.CASCADE, related_name='membros')
+    grupo_pet = models.ForeignKey('grupospet.GrupoPet', on_delete=models.CASCADE, related_name='membros')
 
     # uid = models.CharField(max_length=20, null=False, blank=False)  # rut
     # phone = models.CharField(max_length=20, null=True, blank=True)

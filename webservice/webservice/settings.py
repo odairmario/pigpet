@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # 'petianos.apps.PetianosConfig',
     'grupospet.apps.GrupospetConfig',
+    'projetos.apps.ProjetosConfig',
     'userprofile.apps.UserprofileConfig',
 ]
 
