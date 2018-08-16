@@ -11,6 +11,8 @@ class GrupoPet(models.Model):
     interdisciplinar = models.BooleanField(default=True)
     projetos = models.ManyToManyField('projetos.Projeto', null=True, blank=True, related_name='grupos_pet')
 
+    geolocalizacao = models.ForeignKey('geolocalizacoes.Geolocalizacao', on_delete=None, default=None, related_name='grupospet')
+
     def __unicode__(self):
         return self.nome
 

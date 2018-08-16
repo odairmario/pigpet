@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    # 'petianos.apps.PetianosConfig',
     'grupospet.apps.GrupospetConfig',
     'projetos.apps.ProjetosConfig',
+    'geolocalizacoes.apps.GeolocalizacoesConfig',
     'userprofile.apps.UserprofileConfig',
 ]
 
