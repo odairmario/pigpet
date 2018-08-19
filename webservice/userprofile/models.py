@@ -20,7 +20,10 @@ class UserProfile(models.Model):
     atualizado_em = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     def __unicode__(self):
-        return self.user.username
+        return self.nome
+
+    def __str__(self):
+        return self.user.first_name+" "+self.user.last_name+" - "+self.grupo_pet.nome
 
     # @receiver(post_save, sender=User)
     # def create_profile_for_user(sender, instance=None, created=False, **kargs):

@@ -13,6 +13,8 @@ class GrupoPet(models.Model):
 
     geolocalizacao = models.ForeignKey('geolocalizacoes.Geolocalizacao', on_delete=None, default=None, related_name='grupospet')
 
+    campi = models.ForeignKey('campis.Campi', on_delete=None, default=None, related_name='grupospet')
+
     def __unicode__(self):
         return self.nome
 

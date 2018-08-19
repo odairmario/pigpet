@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^', include('userprofile.urls')),
     url(r'^', include('grupospet.urls')),
     url(r'^', include('projetos.urls')),
+    url(r'^', include('campis.urls')),
     # url(r'^', include('geolocalizacoes.urls')),
     url(r'^api-auth/', include('rest_framework.urls')),
 ]

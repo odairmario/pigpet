@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'grupospet.apps.GrupospetConfig',
     'projetos.apps.ProjetosConfig',
     'geolocalizacoes.apps.GeolocalizacoesConfig',
+    'campis.apps.CampisConfig',
     'userprofile.apps.UserprofileConfig',
 ]
 

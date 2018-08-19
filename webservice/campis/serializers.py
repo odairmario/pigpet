@@ -5,15 +5,15 @@ from django.contrib.auth.models import User
 from userprofile.models import UserProfile
 from django.contrib.auth import update_session_auth_hash
 
-from grupospet.models import GrupoPet
+from campis.models import Campi
 from geolocalizacoes.models import Geolocalizacao
 from geolocalizacoes.serializers import GeolocalizacaoSerializer
 
-class GrupoPetSerializer(serializers.ModelSerializer):
+class CampiSerializer(serializers.ModelSerializer):
     geolocalizacao = GeolocalizacaoSerializer(required=True)
     class Meta:
-        model = GrupoPet
-        fields = ('id', 'nome', 'area_do_conhecimento', 'interdisciplinar','membros', 'projetos', 'geolocalizacao','campi')
+        model = Campi
+        fields = ('id', 'nome', 'geolocalizacao')
 
     def create(self, validated_data):
         
@@ -26,16 +26,7 @@ class GrupoPetSerializer(serializers.ModelSerializer):
         geolocalizacao.save()
         validated_data["geolocalizacao"] = geolocalizacao
 
-
-        membros = validated_data.pop('membros')
-        projetos = validated_data.pop('projetos')
-        grupo = GrupoPet.objects.create(**validated_data)
-        grupo.membros.set(membros)
-        grupo.projetos.set(projetos)
-
-        grupo.save()
-
+        campi = Campi.objects.create(**validated_data)
+        campi.save()
         
-        
-        
-        return grupo
+        return campi
