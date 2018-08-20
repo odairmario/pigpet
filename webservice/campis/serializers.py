@@ -13,7 +13,7 @@ class CampiSerializer(serializers.ModelSerializer):
     geolocalizacao = GeolocalizacaoSerializer(required=True)
     class Meta:
         model = Campi
-        fields = ('id', 'nome', 'geolocalizacao','universidade')
+        fields = ('id', 'nome', 'geolocalizacao','universidade','cidade')
 
     def create(self, validated_data):
         

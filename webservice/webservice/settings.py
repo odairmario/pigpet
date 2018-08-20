@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'geolocalizacoes.apps.GeolocalizacoesConfig',
     'campis.apps.CampisConfig',
     'universidades.apps.UniversidadesConfig',
+    'cidades.apps.CidadesConfig',
     'userprofile.apps.UserprofileConfig',
 ]
 

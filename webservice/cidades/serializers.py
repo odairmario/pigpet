@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 from userprofile.models import UserProfile
 from django.contrib.auth import update_session_auth_hash
 
-from universidades.models import Universidade
+from cidades.models import Cidade
 
-class UniversidadeSerializer(serializers.ModelSerializer):
+class CidadeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Universidade
-        fields = ('id', 'nome','sigla')
+        model = Cidade
+        fields = ('id', 'nome')

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db import models
 
 # Create your models here.
 class Campi(models.Model):
@@ -7,6 +8,7 @@ class Campi(models.Model):
     geolocalizacao = models.ForeignKey('geolocalizacoes.Geolocalizacao', on_delete=None, default=None, related_name='campis')
 
     universidade = models.ForeignKey('universidades.Universidade', on_delete=models.CASCADE, default=None, related_name='campis')
+    cidade = models.ForeignKey('cidades.Cidade', on_delete=models.CASCADE, default=None, related_name='campis')
 
     class Meta:
         unique_together = (("nome", "universidade"),)
