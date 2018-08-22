@@ -1,11 +1,11 @@
 from django.db import models
 
 # Create your models here.
-class Cidade(models.Model):
+class Estado(models.Model):
     
     nome = models.CharField(max_length=20)
-
-    estado = models.ForeignKey('estados.Estado', on_delete=models.CASCADE, default=None, related_name='cidades')
+    sigla = models.CharField(max_length=20)
+    regiao = models.CharField(max_length=20)
 
     def __unicode__(self):
         return self.nome

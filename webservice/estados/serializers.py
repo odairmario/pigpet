@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 from userprofile.models import UserProfile
 from django.contrib.auth import update_session_auth_hash
 
-from cidades.models import Cidade
+from estados.models import Estado
 
-class CidadeSerializer(serializers.ModelSerializer):
+class EstadoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Cidade
-        fields = ('id', 'nome', 'estado')
+        model = Estado
+        fields = ('id', 'nome', 'sigla', 'regiao', 'cidades')

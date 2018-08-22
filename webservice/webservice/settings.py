@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'campis.apps.CampisConfig',
     'universidades.apps.UniversidadesConfig',
     'cidades.apps.CidadesConfig',
+    'estados.apps.EstadosConfig',
     'userprofile.apps.UserprofileConfig',
 ]
 
