@@ -25,6 +25,7 @@ SECRET_KEY = 'd0&5xv#gbjr+$h)*pv1spmjhs1d!co09@farwh7mq^9q8hnp=t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 
@@ -51,9 +52,14 @@ INSTALLED_APPS = [
     'cidades.apps.CidadesConfig',
     'estados.apps.EstadosConfig',
     'userprofile.apps.UserprofileConfig',
+    'corsheaders',
 ]
 
+
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,3 +138,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:4200',
+    'localhost:8000',
+)
